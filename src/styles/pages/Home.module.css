@@ -1,0 +1,56 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	background-color: white;
+	padding-left: 8%;
+	padding-right: 8%;
+	padding-top: 132px; /* Header size (80px) + padding */
+	padding-bottom: 60px;
+}
+
+.discover {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 100%;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	gap: 50px;
+}
+
+.discoverTitle {
+	font-size: 24px;
+	font-weight: 500;
+	color: black;
+}
+
+.activityContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 36px;
+	align-items: space-between;
+	justify-content: space-between;
+}
+
+.activityItem {
+	width: 360px;
+	height: 360px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.activityTitle {
+	color: black;
+	font-size: 20px;
+}
+
+.activityDescription {
+	color: gray;
+	font-size: 14px;
+}

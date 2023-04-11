@@ -1,0 +1,67 @@
+.activities {
+	display: flex;
+	flex-direction: row;
+	min-height: 100vh;
+	width: 100%;
+	background-color: white;
+	padding-left: 8%;
+	padding-right: 8%;
+	padding-top: 132px; /* Header size (80px) + padding */
+	padding-bottom: 60px;
+	gap: 36px;
+}
+
+.leftPart {
+	display: flex;
+	flex-direction: column;
+}
+
+.returnButton {
+	color: black;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.returnIcon {
+	margin-right: 12px;
+	font-size: 30px;
+}
+
+.filtersContainer {
+	background-color: #f2f2f2;
+	width: 350px;
+	height: 200px;
+	padding: 6%;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+.activitiesContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 36px; /* Need to be a same value as .activityItem padding-bottom */
+}
+
+.activityItem {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid gray;
+	padding-bottom: 36px; /* Need to be a same value as .activitiesContainer gap */
+	gap: 36px;
+}
+
+.ActivityInformationsContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.activityText {
+	font-size: 16px;
+}
