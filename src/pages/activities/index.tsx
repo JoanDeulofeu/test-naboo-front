@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 import i18n from "i18next";
 
@@ -7,6 +8,7 @@ import TextInput from "@/components/TextInput";
 
 import getActivityImage from "@/utils/getActivityImage";
 import capitalize from "@/utils/capitalize";
+import getQueryParams from "@/utils/getQueryParams";
 
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -39,7 +41,7 @@ const activitiesList: Activity[] = [
 		club: "Surf your life",
 	},
 	{
-		id: "acti-id-1",
+		id: "acti-id-11",
 		userId: "user-id-1",
 		type: "hiking",
 		city: "paris",
@@ -48,7 +50,7 @@ const activitiesList: Activity[] = [
 		club: "Hiking Big Club",
 	},
 	{
-		id: "acti-id-2",
+		id: "acti-id-21",
 		userId: "user-id-2",
 		type: "bike",
 		city: "marseille",
@@ -56,7 +58,7 @@ const activitiesList: Activity[] = [
 		description: "i love marseille",
 	},
 	{
-		id: "acti-id-3",
+		id: "acti-id-31",
 		userId: "user-id-3",
 		type: "surf",
 		city: "paris",
@@ -64,7 +66,7 @@ const activitiesList: Activity[] = [
 		club: "Surf your life",
 	},
 	{
-		id: "acti-id-1",
+		id: "acti-id-12",
 		userId: "user-id-1",
 		type: "hiking",
 		city: "paris",
@@ -73,7 +75,7 @@ const activitiesList: Activity[] = [
 		club: "Hiking Big Club",
 	},
 	{
-		id: "acti-id-2",
+		id: "acti-id-22",
 		userId: "user-id-2",
 		type: "bike",
 		city: "marseille",
@@ -81,7 +83,7 @@ const activitiesList: Activity[] = [
 		description: "i love marseille",
 	},
 	{
-		id: "acti-id-3",
+		id: "acti-id-32",
 		userId: "user-id-3",
 		type: "surf",
 		city: "paris",
@@ -89,11 +91,6 @@ const activitiesList: Activity[] = [
 		club: "Surf your life",
 	},
 ];
-
-interface ActivitiesProps {
-	filter: string;
-	filterType: string;
-}
 
 interface Activity {
 	id: string;
@@ -140,10 +137,18 @@ const ActivityItem = ({ activity }: { activity: Activity }) => {
 	);
 };
 
-const Activities = ({
-	filter = "bike",
-	filterType = "activity",
-}: ActivitiesProps) => {
+const Activities = () => {
+	const [props, setProps] = React.useState({
+		filter: "bike",
+		filterType: "activity",
+	});
+
+	const { filter, filterType } = props;
+
+	React.useEffect(() => {
+		setProps(getQueryParams(window.location.search));
+	}, []);
+
 	return (
 		<div className={styles.activities}>
 			<div className={styles.leftPart}>

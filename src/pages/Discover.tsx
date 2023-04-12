@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import i18n from "i18next";
 
@@ -9,7 +10,16 @@ import styles from "@/styles/pages/Home.module.css";
 
 const DiscoverItem = ({ activity }: { activity: string }) => {
 	return (
-		<div className={styles.activityItem}>
+		<Link
+			href={{
+				pathname: "activities",
+				query: {
+					filter: activity,
+					filterType: "activity",
+				},
+			}}
+			className={styles.activityItem}
+		>
 			<Image
 				src={getActivityImage(activity)}
 				alt={`Picture of ${activity}`}
@@ -21,7 +31,7 @@ const DiscoverItem = ({ activity }: { activity: string }) => {
 			<p className={styles.activityDescription}>
 				{i18n.t(`Discover.${activity}.description`)}
 			</p>
-		</div>
+		</Link>
 	);
 };
 

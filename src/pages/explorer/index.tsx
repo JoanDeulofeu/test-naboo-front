@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import i18n from "i18next";
 
@@ -11,7 +12,16 @@ const cities = ["paris", "lyon", "marseille", "montpellier"]; //TODO request
 
 const ExplorerItem = ({ city }: { city: string }) => {
 	return (
-		<div className={styles.cityItem}>
+		<Link
+			href={{
+				pathname: "activities",
+				query: {
+					filter: city,
+					filterType: "city",
+				},
+			}}
+			className={styles.cityItem}
+		>
 			<Image
 				src={getCityImage(city)}
 				alt={`Picture of ${city}`}
@@ -24,7 +34,7 @@ const ExplorerItem = ({ city }: { city: string }) => {
 					? i18n.t(`City.Description.${city}`)
 					: i18n.t(`City.Description.default`)}
 			</p>
-		</div>
+		</Link>
 	);
 };
 
