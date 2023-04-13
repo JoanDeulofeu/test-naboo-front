@@ -2,6 +2,18 @@ const en = {
 	Candidator: "Candidator",
 	DiscoverActivity: "Discover activities",
 	Explorer: "Explore",
+	Activities: {
+		filter: {
+			searchLocation: "Search by location",
+			price: "Max price",
+		},
+		type: "Activity",
+		city: "City",
+		club: "Club",
+		description: "Description",
+		price: "Price",
+		notSupplied: "Not supplied",
+	},
 	City: {
 		title: "Find an activity in your city",
 		Description: {
@@ -11,7 +23,7 @@ const en = {
 				"Paris, the capital of France, is a major European city and a world center of art, fashion, gastronomy and culture. Its 19th century urban landscape is crisscrossed by wide boulevards and the Seine. In addition to monuments such as the Eiffel Tower and the 12th-century Gothic Notre Dame Cathedral, the city is known for its cafés and luxury boutiques lining the Rue du Faubourg-Saint-Honoré.",
 		},
 	},
-	Activities: {
+	Discover: {
 		bike: {
 			title: "Bike",
 			description: "Pedal outside to find professional inspiration",
@@ -39,6 +51,19 @@ const en = {
 			description:
 				"Practice yoga to find the perfect balance between work and well-being",
 		},
+	},
+	Login: {
+		Inscription: "Sign up",
+		Connection: "Login",
+		placeholder: "Write here",
+		firstName: "Firstname",
+		lastName: "Lastname",
+		email: "Email",
+		password: "Password",
+		alreadyRegistered: "Already have an account?\n Login",
+		notRegistered: "Not yet registered ?\n  Sign up",
+		register: " Sign up",
+		connect: "Login",
 	},
 };
 

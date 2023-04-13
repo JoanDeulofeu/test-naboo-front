@@ -2,15 +2,6 @@ const fr = {
 	Candidator: "Candidator",
 	DiscoverActivity: "Découvrez des activités",
 	Explorer: "Explorer",
-	City: {
-		title: "Trouvez une activité dans votre ville",
-		Description: {
-			default: "Surement une ville magnifique",
-			lyon: "Entre Rhône et Saône, Lyon, idéalement située en France et en Europe, est une ville riche de trésors architecturaux, culturels et gastronomiques ! Nouveau·elle résident·e, touriste, ou professionnel·le implantant son activité, vous apprécierez la qualité de vie, le dynamisme et la chaleur des habitant·e·s de Lyon.",
-			paris:
-				"Paris, capitale de la France, est une grande ville européenne et un centre mondial de l’art, de la mode, de la gastronomie et de la culture. Son paysage urbain du XIXe siècle est traversé par de larges boulevards et la Seine. Outre les monuments comme la tour Eiffel et la cathédrale gothique Notre-Dame du XIIe siècle, la ville est réputée pour ses cafés et ses boutiques de luxe bordant la rue du Faubourg-Saint-Honoré.",
-		},
-	},
 	Activities: {
 		filter: {
 			searchLocation: "Rechercher un lieu",
@@ -20,8 +11,17 @@ const fr = {
 		city: "Ville",
 		club: "Club",
 		description: "Description",
-		price: "Price",
-		notSupplied: "Not supplied",
+		price: "Prix",
+		notSupplied: "Non renseigné",
+	},
+	City: {
+		title: "Trouvez une activité dans votre ville",
+		Description: {
+			default: "Surement une ville magnifique",
+			lyon: "Entre Rhône et Saône, Lyon, idéalement située en France et en Europe, est une ville riche de trésors architecturaux, culturels et gastronomiques ! Nouveau·elle résident·e, touriste, ou professionnel·le implantant son activité, vous apprécierez la qualité de vie, le dynamisme et la chaleur des habitant·e·s de Lyon.",
+			paris:
+				"Paris, capitale de la France, est une grande ville européenne et un centre mondial de l’art, de la mode, de la gastronomie et de la culture. Son paysage urbain du XIXe siècle est traversé par de larges boulevards et la Seine. Outre les monuments comme la tour Eiffel et la cathédrale gothique Notre-Dame du XIIe siècle, la ville est réputée pour ses cafés et ses boutiques de luxe bordant la rue du Faubourg-Saint-Honoré.",
+		},
 	},
 	Discover: {
 		bike: {
@@ -53,6 +53,19 @@ const fr = {
 			description:
 				"Pratiquez le yoga pour trouver l’équilibre parfait entre travail et bien-être",
 		},
+	},
+	Login: {
+		Inscription: "Inscription",
+		Connection: "Connexion",
+		placeholder: "Ecrire ici",
+		firstName: "Prenom",
+		lastName: "Nom",
+		email: "Mail",
+		password: "Mot de passe",
+		alreadyRegistered: "Vous avez déjà un compte ?\nSe connecter",
+		notRegistered: "Pas encore inscrit ?\n S'inscrire",
+		register: "S'inscrire",
+		connect: "Se connecter",
 	},
 };
 
