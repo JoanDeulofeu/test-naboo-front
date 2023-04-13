@@ -7,10 +7,11 @@ import i18n from "i18next";
 import styles from "@/styles/components/TextInput.module.css";
 
 interface TexpInputProps {
-	label?: string;
+	label?: string | null;
 	type?: string;
 	icon?: string;
-	placeholder?: string;
+	placeholder?: string | null;
+	style?: any;
 }
 
 const getIcon = (icon: string) => {
@@ -24,16 +25,17 @@ const TextInput = ({
 	type = "text",
 	icon,
 	placeholder,
+	style,
 }: TexpInputProps) => {
 	return (
-		<div className={styles.textInput}>
+		<div className={styles.textInput} style={{ ...style }}>
 			{label && <label>{label}</label>}
 			<div className={styles.inputContainer}>
 				{icon && getIcon(icon)}
 				<input
 					className={styles.input}
 					type={type}
-					placeholder={placeholder}
+					placeholder={placeholder ?? ""}
 					id="name"
 				></input>
 			</div>
