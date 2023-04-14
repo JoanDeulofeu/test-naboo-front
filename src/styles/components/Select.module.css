@@ -1,0 +1,25 @@
+.selectWithLabel {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.selectContainer {
+	border: 1px solid #bfbfbf;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-radius: 5px;
+	height: 36px;
+	width: 100%;
+}
+
+.select {
+	border: none !important;
+	background-color: white;
+	outline: none;
+	width: 100%;
+}

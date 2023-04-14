@@ -3,7 +3,9 @@ import React from "react";
 import i18n from "i18next";
 
 import Button from "@/components/Button";
+import Select from "@/components/Select";
 import TextInput from "@/components/TextInput";
+import activities from "@/utils/activities";
 
 import styles from "@/styles/components/Header/Form.module.css";
 
@@ -18,13 +20,7 @@ interface Form {
 	type: string;
 }
 
-const CreateActivityFormField = [
-	"type",
-	"city",
-	"price",
-	"description",
-	"club",
-];
+const CreateActivityFormField = ["city", "price", "description", "club"];
 
 const CreateActivityForm = ({ onClose }: CreateActivityFormProps) => {
 	const [form, setForm] = React.useState<Form>({
@@ -54,6 +50,14 @@ const CreateActivityForm = ({ onClose }: CreateActivityFormProps) => {
 	return (
 		<>
 			<div className={styles.formContainer}>
+				<Select
+					label={i18n.t(`Account.type`)}
+					options={activities.map((activity) => ({
+						field: activity,
+						value: i18n.t(`Discover.${activity}.title`),
+					}))}
+					onChange={(e) => handleChange("type", e.currentTarget.value)}
+				/>
 				{CreateActivityFormField.map((field) => (
 					<TextInput
 						key={field}
