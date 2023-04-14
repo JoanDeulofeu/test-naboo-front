@@ -66,6 +66,8 @@ const fr = {
 		notRegistered: "Pas encore inscrit ?\n S'inscrire",
 		register: "S'inscrire",
 		connect: "Se connecter",
+		formError: "Merci de remplir entièrement le formulaire",
+		createAccountError: "Une erreur est survenue lors de la création du compte",
 	},
 };
 

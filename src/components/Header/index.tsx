@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 import { BsEmojiWink } from "react-icons/bs";
@@ -9,15 +10,30 @@ import i18n from "i18next";
 import Modal from "@/components/Modal";
 import InscriptionForm from "./components/InscriptionForm";
 import ConnectionForm from "./components/ConnectionForm";
+import { useOauth } from "@/contexts/OauthContextProvider";
+
+import UserImage from "../../../public/userProfil.png";
 
 import styles from "@/styles/components/Header/Header.module.css";
 
 const Header = () => {
+	const { isConnected } = useOauth();
+
 	const [connectionModalIsOpen, setConnectionModalIsOpen] = React.useState<
 		string | undefined
 	>();
 	const [headerConnectionModalIsOpen, setHeaderConnectionModalIsOpen] =
 		React.useState<boolean>(false);
+
+	const handleCloseAllModal = () => {
+		setConnectionModalIsOpen(undefined);
+		setHeaderConnectionModalIsOpen(false);
+	};
+
+	React.useEffect(() => {
+		// ----- LOG to test. Remove it ! -----
+		console.log("isConnected", isConnected);
+	}, [isConnected]);
 
 	return (
 		<div className={styles.header}>
@@ -51,10 +67,18 @@ const Header = () => {
 						</p>
 					</div>
 				)}
-				<MdAccountCircle
-					onClick={() => setHeaderConnectionModalIsOpen((e) => !e)}
-					className={styles.rightEmoji}
-				/>
+				{!isConnected ? (
+					<MdAccountCircle
+						onClick={() => setHeaderConnectionModalIsOpen((e) => !e)}
+						className={styles.rightEmoji}
+					/>
+				) : (
+					<Image
+						src={UserImage}
+						alt={`Profil photo`}
+						className={styles.userImage}
+					/>
+				)}
 			</div>
 			{connectionModalIsOpen && (
 				<Modal
@@ -64,6 +88,7 @@ const Header = () => {
 					{connectionModalIsOpen === "Inscription" && (
 						<InscriptionForm
 							switchToConnection={() => setConnectionModalIsOpen("Connection")}
+							onClose={handleCloseAllModal}
 						/>
 					)}
 					{connectionModalIsOpen === "Connection" && (

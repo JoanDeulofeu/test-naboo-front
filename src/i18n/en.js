@@ -64,6 +64,8 @@ const en = {
 		notRegistered: "Not yet registered ?\n  Sign up",
 		register: " Sign up",
 		connect: "Login",
+		formError: "Please fill out the form completely",
+		createAccountError: "An error occurred while creating the account",
 	},
 };
 

@@ -53,6 +53,13 @@
 	color: white;
 }
 
+.userImage {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	border: 1px solid white;
+}
+
 .connectionModal {
 	width: 250px;
 	height: 100px;

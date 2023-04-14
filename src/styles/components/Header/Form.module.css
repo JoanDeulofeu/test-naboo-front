@@ -29,3 +29,9 @@
 .footerText:hover {
 	color: #353535;
 }
+
+.errorText {
+	color: red;
+	margin-left: auto;
+	margin-right: auto;
+}

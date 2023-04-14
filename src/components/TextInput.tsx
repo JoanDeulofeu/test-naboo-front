@@ -12,6 +12,8 @@ interface TexpInputProps {
 	icon?: string;
 	placeholder?: string | null;
 	style?: any;
+	onChange: (e: any) => void;
+	value: string;
 }
 
 const getIcon = (icon: string) => {
@@ -26,6 +28,8 @@ const TextInput = ({
 	icon,
 	placeholder,
 	style,
+	onChange,
+	value,
 }: TexpInputProps) => {
 	return (
 		<div className={styles.textInput} style={{ ...style }}>
@@ -36,7 +40,9 @@ const TextInput = ({
 					className={styles.input}
 					type={type}
 					placeholder={placeholder ?? ""}
-					id="name"
+					id={label ?? ""}
+					onChange={onChange}
+					value={value}
 				></input>
 			</div>
 		</div>
