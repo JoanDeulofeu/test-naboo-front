@@ -7,17 +7,22 @@ import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import getActivityImage from "@/utils/getActivityImage";
 import CreateActivityForm from "./components/CreateActivityForm";
+import { useUser } from "@/contexts/UserContextProvider";
 
 import styles from "@/styles/pages/Account.module.css";
 
 const Account = () => {
+	const { user } = useUser();
+
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);
 	const [activities, setActivities] = React.useState([]);
 
 	return (
 		<div className={styles.accountPage}>
 			<div className={styles.account}>
-				<p className={styles.accountTitle}>{i18n.t(`Account.title`)}</p>
+				<p className={styles.accountTitle}>{`${user.firstName} ${
+					user.lastName
+				} - ${i18n.t("Account.title")}`}</p>
 				<div className={styles.activitiesContainer}>
 					{activities.length === 0 && (
 						<div className={styles.noActivity}>

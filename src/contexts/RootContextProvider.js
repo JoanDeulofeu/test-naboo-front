@@ -2,11 +2,14 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import ApiContextProvider from "./ApiContextProvider";
 import OauthContextProvider from "./OauthContextProvider";
+import UserContextProvider from "./UserContextProvider";
 
 const RootContextProvider = ({ children }) => {
 	return (
 		<ApiContextProvider>
-			<OauthContextProvider>{children}</OauthContextProvider>
+			<OauthContextProvider>
+				<UserContextProvider>{children}</UserContextProvider>
+			</OauthContextProvider>
 		</ApiContextProvider>
 	);
 };

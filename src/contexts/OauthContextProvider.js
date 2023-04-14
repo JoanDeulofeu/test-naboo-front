@@ -83,7 +83,7 @@ const OauthContextProvider = ({ children }) => {
 		}
 	}, []);
 
-	const value = { isConnected, createAccount, signIn };
+	const value = { isConnected, userId, createAccount, signIn };
 
 	return (
 		<OauthContext.Provider value={value}>{children}</OauthContext.Provider>
