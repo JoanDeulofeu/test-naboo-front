@@ -6,7 +6,7 @@ import OauthContextProvider from "./OauthContextProvider";
 const RootContextProvider = ({ children }) => {
 	return (
 		<ApiContextProvider>
-			<OauthContextProvider>{children}</OauthContextProvider>;
+			<OauthContextProvider>{children}</OauthContextProvider>
 		</ApiContextProvider>
 	);
 };

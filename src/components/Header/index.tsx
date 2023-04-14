@@ -30,11 +30,6 @@ const Header = () => {
 		setHeaderConnectionModalIsOpen(false);
 	};
 
-	React.useEffect(() => {
-		// ----- LOG to test. Remove it ! -----
-		console.log("isConnected", isConnected);
-	}, [isConnected]);
-
 	return (
 		<div className={styles.header}>
 			<div className={styles.leftPart}>
@@ -50,6 +45,9 @@ const Header = () => {
 					href="http://localhost:3000/explorer"
 				>
 					{i18n.t(`Explorer`)}
+				</Link>
+				<Link className={styles.rightLink} href="http://localhost:3000/account">
+					{i18n.t(`Account.title`)}
 				</Link>
 				{headerConnectionModalIsOpen && (
 					<div className={styles.connectionModal}>

@@ -12,6 +12,7 @@ interface TexpInputProps {
 	icon?: string;
 	placeholder?: string | null;
 	style?: any;
+	min?: string;
 	onChange: (e: any) => void;
 	value: string;
 }
@@ -28,6 +29,7 @@ const TextInput = ({
 	icon,
 	placeholder,
 	style,
+	min,
 	onChange,
 	value,
 }: TexpInputProps) => {
@@ -43,6 +45,7 @@ const TextInput = ({
 					id={label ?? ""}
 					onChange={onChange}
 					value={value}
+					min={min}
 				></input>
 			</div>
 		</div>

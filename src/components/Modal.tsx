@@ -13,8 +13,12 @@ const Modal = ({ title, children, onClose }: ModalProps) => {
 	var height = window.innerHeight;
 
 	return (
-		<div className={styles.modalBackground} style={{ width, height }}>
-			<div className={styles.modal}>
+		<div
+			onClick={onClose}
+			className={styles.modalBackground}
+			style={{ width, height }}
+		>
+			<div onClick={(e) => e.stopPropagation()} className={styles.modal}>
 				<div className={styles.header}>
 					<p className={styles.headerTitle}>{title}</p>
 					<RxCross2 onClick={onClose} className={styles.rightEmoji} />

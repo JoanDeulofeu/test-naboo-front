@@ -3,6 +3,7 @@ import activityImage from "../../public/activities/activity.png";
 import bike from "../../public/activities/bike.png";
 import climbing from "../../public/activities/climbing.png";
 import hiking from "../../public/activities/hiking.png";
+import noActivity from "../../public/activities/noActivity.png";
 import surf from "../../public/activities/surf.png";
 import trail from "../../public/activities/trail.png";
 import yoga from "../../public/activities/yoga.png";
@@ -18,6 +19,7 @@ const getActivityImage = (activity: string) => {
 	else if (activity === "surf") return surf;
 	else if (activity === "trail") return trail;
 	else if (activity === "yoga") return yoga;
+	else if (activity === "noActivity") return noActivity;
 	else return activitySquare;
 };
 

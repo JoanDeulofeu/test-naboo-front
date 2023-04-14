@@ -2,6 +2,19 @@ const en = {
 	Candidator: "Candidator",
 	DiscoverActivity: "Discover activities",
 	Explorer: "Explore",
+	Account: {
+		title: "My activities",
+		noActivity: "You have not yet created an activity",
+		createActivity: "Create an activity",
+		type: "Type of activity",
+		city: "City",
+		price: "Price",
+		description: "Description",
+		club: "Club",
+		placeholder: "Ecrire ici",
+		formError: "Please fill in the fields 'Type of activity' and 'City'.",
+		formPriceError: "The price can't be negative",
+	},
 	Activities: {
 		filter: {
 			searchLocation: "Search by location",

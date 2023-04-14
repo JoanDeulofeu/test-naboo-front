@@ -169,10 +169,14 @@ const Activities = () => {
 					<TextInput
 						icon="location"
 						placeholder={i18n.t(`Activities.filter.searchLocation`) ?? ""}
+						onChange={() => {}}
+						value={""}
 					/>
 					<TextInput
 						icon="euros"
 						placeholder={i18n.t(`Activities.filter.price`) ?? ""}
+						onChange={() => {}}
+						value={""}
 					/>
 				</div>
 			</div>
