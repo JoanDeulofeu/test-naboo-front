@@ -42,9 +42,11 @@ const InscriptionForm = ({
 
 	const handleRegister = () => {
 		if (Object.values(form).includes("")) setError(i18n.t(`Login.formError`));
+		else if (form.password.length < 6)
+			setError(i18n.t(`Login.formPasswordError`));
 		else {
-			createAccount(form).then((isCreate: boolean) => {
-				if (isCreate) onClose();
+			createAccount(form).then((isCreated: boolean) => {
+				if (isCreated) onClose();
 				else setError(i18n.t(`Login.createAccountError`));
 			});
 		}

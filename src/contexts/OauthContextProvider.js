@@ -14,6 +14,7 @@ const OauthContextProvider = ({ children }) => {
 	const { api } = useApi();
 
 	const [isConnected, setIsConnected] = React.useState(false);
+	const [userId, setUserId] = React.useState();
 	const [accessToken, setAccessToken] = React.useState();
 	const [refreshToken, setRefreshToken] = React.useState();
 
@@ -23,10 +24,44 @@ const OauthContextProvider = ({ children }) => {
 		async (credentials) => {
 			try {
 				const accountData = await api(`/oauth`, "post", credentials);
-				setAccessToken(accountData.accessToken);
-				localStorage.setItem("accessToken", accountData.accessToken);
-				setRefreshToken(accountData.refreshToken);
+				if (!accountData) return false;
+
+				localStorage.setItem("accessToken", accountData.data.accessToken);
+				localStorage.setItem("userId", accountData.data.userId);
+
+				setUserId(accountData.data.userId);
+				setAccessToken(accountData.data.accessToken);
+				setRefreshToken(accountData.data.refreshToken);
 				setIsConnected(true);
+
+				return true;
+			} catch (e) {
+				return false;
+			}
+		},
+		[api]
+	);
+
+	// Sign in with credentials
+	// Return true if it is well done
+	const signIn = React.useCallback(
+		async (credentials) => {
+			try {
+				const accountData = await api(
+					`/oauth?email=${credentials.email}&password=${credentials.password}`,
+					"get",
+					credentials
+				);
+				if (!accountData) return false;
+
+				localStorage.setItem("accessToken", accountData.data.accessToken);
+				localStorage.setItem("userId", accountData.data.userId);
+
+				setUserId(accountData.data.userId);
+				setAccessToken(accountData.data.accessToken);
+				setRefreshToken(accountData.data.refreshToken);
+				setIsConnected(true);
+
 				return true;
 			} catch (e) {
 				return false;
@@ -39,13 +74,16 @@ const OauthContextProvider = ({ children }) => {
 	// & implement au useEffect to refresh the token when they are outdated
 	React.useEffect(() => {
 		const localAccessToken = localStorage.getItem("accessToken");
+		const localUserId = localStorage.getItem("userId");
+
 		if (localAccessToken) {
 			setAccessToken(localAccessToken);
+			setUserId(localUserId);
 			setIsConnected(true);
 		}
 	}, []);
 
-	const value = { isConnected, createAccount };
+	const value = { isConnected, createAccount, signIn };
 
 	return (
 		<OauthContext.Provider value={value}>{children}</OauthContext.Provider>

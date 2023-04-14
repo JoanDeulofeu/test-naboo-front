@@ -65,7 +65,9 @@ const en = {
 		register: " Sign up",
 		connect: "Login",
 		formError: "Please fill out the form completely",
+		formPasswordError: "Your password must contain at least 6 characters",
 		createAccountError: "An error occurred while creating the account",
+		signInError: "An error occurred while the connection",
 	},
 };
 

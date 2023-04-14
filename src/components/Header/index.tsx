@@ -96,6 +96,7 @@ const Header = () => {
 							switchToInscription={() =>
 								setConnectionModalIsOpen("Inscription")
 							}
+							onClose={handleCloseAllModal}
 						/>
 					)}
 				</Modal>

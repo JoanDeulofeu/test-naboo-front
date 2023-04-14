@@ -67,7 +67,9 @@ const fr = {
 		register: "S'inscrire",
 		connect: "Se connecter",
 		formError: "Merci de remplir entièrement le formulaire",
+		formPasswordError: "Votre mot de passe doit contenir 6 caractères minimum",
 		createAccountError: "Une erreur est survenue lors de la création du compte",
+		signInError: "Une erreur est survenue lors de la connexion",
 	},
 };
 
