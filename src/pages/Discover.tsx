@@ -15,7 +15,7 @@ const DiscoverItem = ({ activity }: { activity: string }) => {
 				pathname: "activities",
 				query: {
 					filter: activity,
-					filterType: "activity",
+					filterType: "type",
 				},
 			}}
 			className={styles.activityItem}

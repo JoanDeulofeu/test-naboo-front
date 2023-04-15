@@ -57,10 +57,12 @@ const Account = () => {
 						return <ActivityItem key={activity.id} activity={activity} />;
 					})}
 				</div>
-				<Button
-					onClick={() => setIsOpen(true)}
-					label={i18n.t(`Account.createActivity`)}
-				/>
+				{userActivities.length !== 0 && (
+					<Button
+						onClick={() => setIsOpen(true)}
+						label={i18n.t(`Account.createActivity`)}
+					/>
+				)}
 			</div>
 			{isOpen && (
 				<Modal

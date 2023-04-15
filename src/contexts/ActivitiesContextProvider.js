@@ -39,7 +39,31 @@ const ActivitiesContextProvider = ({ children }) => {
 		[api, userId]
 	);
 
-	const value = { userActivities, createActivity };
+	const getActivities = React.useCallback(
+		async ({ filter, filterType }) => {
+			try {
+				const allActivities = await api(
+					`/activities?filterType=${filterType}&filter=${filter}`,
+					"get"
+				);
+				if (!allActivities?.data) return [];
+
+				return allActivities.data;
+			} catch (e) {
+				return [];
+			}
+		},
+		[api]
+	);
+
+	React.useEffect(() => {
+		if (userId)
+			getActivities({ filter: userId, filterType: "userId" }).then(
+				(activities) => setUserActivities(activities)
+			);
+	}, [getActivities, userId]);
+
+	const value = { userActivities, createActivity, getActivities };
 
 	return (
 		<ActivitiesContext.Provider value={value}>

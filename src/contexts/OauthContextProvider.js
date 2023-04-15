@@ -78,9 +78,10 @@ const OauthContextProvider = ({ children }) => {
 
 		if (localAccessToken) {
 			setAccessToken(localAccessToken);
-			setUserId(localUserId);
+			if (!userId) setUserId(localUserId);
 			setIsConnected(true);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const value = { isConnected, userId, createAccount, signIn };

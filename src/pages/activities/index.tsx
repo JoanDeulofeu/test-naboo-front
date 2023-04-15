@@ -9,100 +9,35 @@ import TextInput from "@/components/TextInput";
 import Activity from "@/types/Activity";
 import capitalize from "@/utils/capitalize";
 import getQueryParams from "@/utils/getQueryParams";
+import { useActivities } from "@/contexts/ActivitiesContextProvider";
 
 import { IoIosArrowBack } from "react-icons/io";
 
 import styles from "@/styles/pages/Activities.module.css";
 
-const activitiesList: Activity[] = [
-	{
-		id: "acti-id-1",
-		userId: "user-id-1",
-		type: "hiking",
-		city: "paris",
-		price: 840.99,
-		description: "i love hiking",
-		club: "Hiking Big Club",
-	},
-	{
-		id: "acti-id-2",
-		userId: "user-id-2",
-		type: "bike",
-		city: "marseille",
-		price: 99.99,
-		description: "i love marseille",
-	},
-	{
-		id: "acti-id-3",
-		userId: "user-id-3",
-		type: "surf",
-		city: "paris",
-		price: 170,
-		club: "Surf your life",
-	},
-	{
-		id: "acti-id-11",
-		userId: "user-id-1",
-		type: "hiking",
-		city: "paris",
-		price: 840.99,
-		description: "i love hiking",
-		club: "Hiking Big Club",
-	},
-	{
-		id: "acti-id-21",
-		userId: "user-id-2",
-		type: "bike",
-		city: "marseille",
-		price: 99.99,
-		description: "i love marseille",
-	},
-	{
-		id: "acti-id-31",
-		userId: "user-id-3",
-		type: "surf",
-		city: "paris",
-		price: 170,
-		club: "Surf your life",
-	},
-	{
-		id: "acti-id-12",
-		userId: "user-id-1",
-		type: "hiking",
-		city: "paris",
-		price: 840.99,
-		description: "i love hiking",
-		club: "Hiking Big Club",
-	},
-	{
-		id: "acti-id-22",
-		userId: "user-id-2",
-		type: "bike",
-		city: "marseille",
-		price: 99.99,
-		description: "i love marseille",
-	},
-	{
-		id: "acti-id-32",
-		userId: "user-id-3",
-		type: "surf",
-		city: "paris",
-		price: 170,
-		club: "Surf your life",
-	},
-];
-
 const Activities = () => {
-	const [props, setProps] = React.useState({
-		filter: "bike",
-		filterType: "activity",
-	});
+	const { getActivities } = useActivities();
 
-	const { filter, filterType } = props;
+	const [filter, setFilter] = React.useState();
+	const [filterType, setFilterType] = React.useState();
+	const [activitiesList, setActivitiesList] = React.useState<Activity[]>([]);
+
+	const getActivitiesFiltered = React.useCallback(
+		async () => setActivitiesList(await getActivities({ filter, filterType })),
+		[getActivities, filter, filterType]
+	);
 
 	React.useEffect(() => {
-		setProps(getQueryParams(window.location.search));
+		const queryParams = getQueryParams(window.location.search);
+		setFilter(queryParams?.filter);
+		setFilterType(queryParams?.filterType);
 	}, []);
+
+	React.useEffect(() => {
+		if (filter && filterType) {
+			getActivitiesFiltered();
+		}
+	}, [filter, filterType, getActivitiesFiltered]);
 
 	return (
 		<div className={styles.activities}>
@@ -114,7 +49,7 @@ const Activities = () => {
 					<>
 						<IoIosArrowBack className={styles.returnIcon} />
 						{capitalize(
-							filterType === "activity"
+							filterType === "type"
 								? i18n.t(`Discover.${filter}.title`)
 								: filter
 						)}
