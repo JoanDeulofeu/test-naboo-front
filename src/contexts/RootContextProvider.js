@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import * as React from "react";
+import ActivitiesContextProvider from "./ActivitiesContextProvider";
 import ApiContextProvider from "./ApiContextProvider";
 import OauthContextProvider from "./OauthContextProvider";
 import UserContextProvider from "./UserContextProvider";
@@ -8,7 +8,9 @@ const RootContextProvider = ({ children }) => {
 	return (
 		<ApiContextProvider>
 			<OauthContextProvider>
-				<UserContextProvider>{children}</UserContextProvider>
+				<UserContextProvider>
+					<ActivitiesContextProvider>{children}</ActivitiesContextProvider>
+				</UserContextProvider>
 			</OauthContextProvider>
 		</ApiContextProvider>
 	);

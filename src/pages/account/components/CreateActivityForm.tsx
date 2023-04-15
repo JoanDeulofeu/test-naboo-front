@@ -9,9 +9,6 @@ import activities from "@/utils/activities";
 
 import styles from "@/styles/components/Header/Form.module.css";
 
-interface CreateActivityFormProps {
-	onClose: () => void;
-}
 interface Form {
 	city: string;
 	club: string;
@@ -20,9 +17,17 @@ interface Form {
 	type: string;
 }
 
+interface CreateActivityFormProps {
+	onClose: () => void;
+	createActivity: (form: Form) => Promise<boolean>;
+}
+
 const CreateActivityFormField = ["city", "price", "description", "club"];
 
-const CreateActivityForm = ({ onClose }: CreateActivityFormProps) => {
+const CreateActivityForm = ({
+	onClose,
+	createActivity,
+}: CreateActivityFormProps) => {
 	const [form, setForm] = React.useState<Form>({
 		type: "",
 		city: "",
@@ -40,10 +45,12 @@ const CreateActivityForm = ({ onClose }: CreateActivityFormProps) => {
 	const handleRegister = () => {
 		if (form.type === "" || form.city === "")
 			setError(i18n.t(`Account.formError`));
-		if (form.price < 0) setError(i18n.t(`Account.formPriceError`));
+		else if (form.price < 0) setError(i18n.t(`Account.formPriceError`));
 		else {
-			// ----- LOG to test. Remove it ! -----
-			console.log("test", form);
+			createActivity(form).then((isCreated) => {
+				if (isCreated) onClose();
+				else setError(i18n.t(`Account.requestError`));
+			});
 		}
 	};
 

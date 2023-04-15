@@ -14,6 +14,7 @@ const fr = {
 		placeholder: "Ecrire ici",
 		formError: "Merci de remplir les champs 'Type d'activité' et 'Ville'",
 		formPriceError: "Le prix ne peux pas etre négatif",
+		requestError: "Une erreur s'est produite",
 	},
 	Activities: {
 		filter: {
