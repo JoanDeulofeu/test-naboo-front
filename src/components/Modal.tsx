@@ -10,7 +10,10 @@ interface ModalProps {
 
 const Modal = ({ title, children, onClose }: ModalProps) => {
 	var width = window.innerWidth;
-	var height = window.innerHeight;
+
+	var body = document.body;
+
+	var height = Math.max(body.scrollHeight, window.innerHeight);
 
 	return (
 		<div

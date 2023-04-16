@@ -9,7 +9,7 @@
 .modal {
 	width: 600px;
 	min-height: 300px;
-	position: absolute;
+	position: sticky;
 	top: 15%;
 	left: calc(50% - 300px);
 	background-color: white;
