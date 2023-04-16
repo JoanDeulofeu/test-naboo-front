@@ -5,10 +5,12 @@
 	border-bottom: 1px solid gray;
 	padding-bottom: 36px; /* Need to be a same value as .activitiesContainer gap (pages/Activities) */
 	gap: 36px;
+	align-items: center;
 }
 
 .ActivityInformationsContainer {
 	width: 100%;
+	min-height: 149px; /* Image height */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -16,4 +18,10 @@
 
 .activityText {
 	font-size: 16px;
+}
+
+.modalInformationContainer {
+	width: 100%;
+	height: 100%;
+	padding: 50px;
 }

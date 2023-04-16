@@ -15,7 +15,6 @@ const en = {
 		formError: "Please fill in the fields 'Type of activity' and 'City'.",
 		formPriceError: "The price can't be negative",
 		requestError: "An error has occurred",
-		noActivityFound: { part1: "No", part2: "activity found." },
 	},
 	Activities: {
 		filter: {
@@ -28,6 +27,8 @@ const en = {
 		description: "Description",
 		price: "Price",
 		notSupplied: "Not supplied",
+		noActivityFound: { part1: "Aucune activité de", part2: "trouvée." },
+		seeMore: "See more",
 	},
 	City: {
 		title: "Find an activity in your city",

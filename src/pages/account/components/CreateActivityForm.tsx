@@ -85,6 +85,7 @@ const CreateActivityForm = ({
 			<div className={styles.footer}>
 				<Button
 					onClick={handleRegister}
+					icon="plus"
 					label={i18n.t(`Account.createActivity`)}
 				/>
 			</div>

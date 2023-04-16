@@ -49,6 +49,7 @@ const Account = () => {
 
 							<Button
 								onClick={() => setIsOpen(true)}
+								icon="plus"
 								label={i18n.t(`Account.createActivity`)}
 							/>
 						</div>
@@ -60,6 +61,7 @@ const Account = () => {
 				{userActivities.length !== 0 && (
 					<Button
 						onClick={() => setIsOpen(true)}
+						icon="plus"
 						label={i18n.t(`Account.createActivity`)}
 					/>
 				)}

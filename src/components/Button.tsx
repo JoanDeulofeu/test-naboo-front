@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { MdLocationPin, MdEuroSymbol } from "react-icons/md";
+import { FiPlusCircle } from "react-icons/fi";
 
 import i18n from "i18next";
 
@@ -8,19 +8,30 @@ import styles from "@/styles/components/Button.module.css";
 
 interface ButtonProps {
 	label?: string | null;
+	variant?: string;
 	icon?: string;
 	onClick: () => void;
 }
 
 const getIcon = (icon: string) => {
-	if (icon === "location") return <MdLocationPin className={styles.icon} />;
-	else if (icon === "euros") return <MdEuroSymbol className={styles.icon} />;
+	if (icon === "plus") return <FiPlusCircle className={styles.icon} />;
 	return <></>;
 };
 
-const Button = ({ label = "Click here", icon, onClick }: ButtonProps) => {
+const Button = ({
+	label = "Click here",
+	variant = "primary",
+	icon,
+	onClick,
+}: ButtonProps) => {
 	return (
-		<div className={styles.primaryButton} onClick={onClick}>
+		<div
+			className={
+				variant === "primary" ? styles.primaryButton : styles.secondaryButton
+			}
+			onClick={onClick}
+		>
+			{icon && getIcon(icon)}
 			{label}
 		</div>
 	);

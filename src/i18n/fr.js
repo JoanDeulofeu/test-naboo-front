@@ -28,6 +28,7 @@ const fr = {
 		price: "Prix",
 		notSupplied: "Non renseigné",
 		noActivityFound: { part1: "Aucune activité de", part2: "trouvée." },
+		seeMore: "Voir plus",
 	},
 	City: {
 		title: "Trouvez une activité dans votre ville",

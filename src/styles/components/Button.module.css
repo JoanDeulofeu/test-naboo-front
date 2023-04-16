@@ -1,6 +1,6 @@
 .primaryButton {
 	display: flex;
-	gap: 16px;
+	gap: 8px;
 	background-color: #26bc8b;
 	width: 200px;
 	height: 50px;
@@ -20,4 +20,26 @@
 .primaryButton:active {
 	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
 		inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.secondaryButton {
+	display: flex;
+	gap: 8px;
+	background-color: white;
+	width: 200px;
+	height: 50px;
+	border-radius: 25px;
+	border: 1px solid rgb(181, 181, 181);
+	justify-content: center;
+	align-items: center;
+	color: black;
+	padding: 8px;
+}
+
+.secondaryButton:hover {
+	border: 1px solid black;
+}
+
+.icon {
+	font-size: 18px;
 }
