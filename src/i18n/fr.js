@@ -53,7 +53,7 @@ const fr = {
 				"Grimpez seul ou accompagné pour vous ressourcer en toute liberté",
 		},
 		hiking: {
-			title: "Randonée",
+			title: "Randonnée",
 			description:
 				"Découvrez les meilleures pistes de randonnée entre deux sessions de travail",
 		},
