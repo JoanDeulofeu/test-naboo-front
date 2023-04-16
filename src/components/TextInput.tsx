@@ -1,8 +1,5 @@
-import Link from "next/link";
-
-import { MdLocationPin, MdEuroSymbol } from "react-icons/md";
-
-import i18n from "i18next";
+import { MdEuroSymbol, MdLocationPin } from "react-icons/md";
+import { GiTennisRacket } from "react-icons/gi";
 
 import styles from "@/styles/components/TextInput.module.css";
 
@@ -14,12 +11,14 @@ interface TexpInputProps {
 	style?: any;
 	min?: string;
 	onChange: (e: any) => void;
-	value: string;
+	value: string | number | undefined;
 }
 
 const getIcon = (icon: string) => {
 	if (icon === "location") return <MdLocationPin className={styles.icon} />;
 	else if (icon === "euros") return <MdEuroSymbol className={styles.icon} />;
+	else if (icon === "activity")
+		return <GiTennisRacket className={styles.icon} />;
 	return <></>;
 };
 

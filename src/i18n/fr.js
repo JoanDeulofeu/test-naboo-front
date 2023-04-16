@@ -19,6 +19,7 @@ const fr = {
 	Activities: {
 		filter: {
 			searchLocation: "Rechercher un lieu",
+			searchActivity: "Rechercher une activité",
 			price: "Prix max",
 		},
 		type: "Activité",
