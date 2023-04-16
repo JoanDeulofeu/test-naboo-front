@@ -74,6 +74,13 @@ const Activities = () => {
 				{activitiesList.map((activity) => (
 					<ActivityItem key={activity.id} activity={activity} />
 				))}
+				{activitiesList.length === 0 && (
+					<p className={styles.noActivityText}>{`${i18n.t(
+						"Activities.noActivityFound.part1"
+					)} ${i18n.t(`Discover.${filter}.title`)} ${i18n.t(
+						"Activities.noActivityFound.part2"
+					)}`}</p>
+				)}
 			</div>
 		</div>
 	);

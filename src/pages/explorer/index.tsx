@@ -5,10 +5,9 @@ import i18n from "i18next";
 
 import capitalize from "@/utils/capitalize";
 import getCityImage from "@/utils/getCityImage";
+import { useCities } from "@/contexts/CitiesContextProvider";
 
 import styles from "@/styles/pages/Explorer.module.css";
-
-const cities = ["paris", "lyon", "marseille", "montpellier"]; //TODO request
 
 const ExplorerItem = ({ city }: { city: string }) => {
 	return (
@@ -39,6 +38,8 @@ const ExplorerItem = ({ city }: { city: string }) => {
 };
 
 const Explorer = () => {
+	const { cities }: { cities: string[] } = useCities();
+
 	return (
 		<div className={styles.explorerPage}>
 			<div className={styles.explorer}>

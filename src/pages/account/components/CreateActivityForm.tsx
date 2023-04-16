@@ -1,10 +1,10 @@
 import React from "react";
-
 import i18n from "i18next";
 
 import Button from "@/components/Button";
 import Select from "@/components/Select";
 import TextInput from "@/components/TextInput";
+import { useCities } from "@/contexts/CitiesContextProvider";
 import activities from "@/utils/activities";
 
 import styles from "@/styles/components/Header/Form.module.css";
@@ -28,6 +28,8 @@ const CreateActivityForm = ({
 	onClose,
 	createActivity,
 }: CreateActivityFormProps) => {
+	const { getCities } = useCities();
+
 	const [form, setForm] = React.useState<Form>({
 		type: "",
 		city: "",
@@ -48,8 +50,10 @@ const CreateActivityForm = ({
 		else if (form.price < 0) setError(i18n.t(`Account.formPriceError`));
 		else {
 			createActivity(form).then((isCreated) => {
-				if (isCreated) onClose();
-				else setError(i18n.t(`Account.requestError`));
+				if (isCreated) {
+					getCities();
+					onClose();
+				} else setError(i18n.t(`Account.requestError`));
 			});
 		}
 	};

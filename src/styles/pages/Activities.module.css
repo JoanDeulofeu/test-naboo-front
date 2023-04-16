@@ -45,3 +45,9 @@
 	flex-direction: column;
 	gap: 36px; /* Need to be a same value as .activityItem padding-bottom (components/ActivityItem) */
 }
+
+.noActivityText {
+	margin: auto;
+	font-size: 20px;
+	color: gray;
+}

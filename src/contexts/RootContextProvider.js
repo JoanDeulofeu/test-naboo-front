@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import ActivitiesContextProvider from "./ActivitiesContextProvider";
+import CitiesContextProvider from "./CitiesContextProvider";
 import ApiContextProvider from "./ApiContextProvider";
 import OauthContextProvider from "./OauthContextProvider";
 import UserContextProvider from "./UserContextProvider";
@@ -9,7 +10,9 @@ const RootContextProvider = ({ children }) => {
 		<ApiContextProvider>
 			<OauthContextProvider>
 				<UserContextProvider>
-					<ActivitiesContextProvider>{children}</ActivitiesContextProvider>
+					<ActivitiesContextProvider>
+						<CitiesContextProvider>{children}</CitiesContextProvider>
+					</ActivitiesContextProvider>
 				</UserContextProvider>
 			</OauthContextProvider>
 		</ApiContextProvider>

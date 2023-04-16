@@ -27,6 +27,7 @@ const fr = {
 		description: "Description",
 		price: "Prix",
 		notSupplied: "Non renseigné",
+		noActivityFound: { part1: "Aucune activité de", part2: "trouvée." },
 	},
 	City: {
 		title: "Trouvez une activité dans votre ville",
