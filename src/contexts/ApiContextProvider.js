@@ -14,16 +14,6 @@ const ApiContextProvider = ({ children }) => {
 		async (urlPath, method = "get", data, headers = {}) => {
 			const url = `${"http://localhost:8080"}${urlPath}`;
 
-			// ----- LOG to test. Remove it ! -----
-			console.log("-*- API (args before call)", {
-				urlPath,
-				url,
-				method,
-				data,
-				env: process.env,
-				headers,
-			});
-
 			return await axios({
 				method,
 				url,
@@ -31,11 +21,10 @@ const ApiContextProvider = ({ children }) => {
 				headers,
 			})
 				.then((response) => {
-					console.log("-*- API (response) ", response);
 					return response;
 				})
 				.catch(function (error) {
-					console.log("-*- API (error) ", error);
+					console.log("API (error) ", error);
 				});
 		},
 		[]
