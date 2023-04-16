@@ -31,7 +31,7 @@ const CreateActivityForm = ({
 	const { getCities } = useCities();
 
 	const [form, setForm] = React.useState<Form>({
-		type: "",
+		type: "hiking",
 		city: "",
 		price: 1,
 		description: "",

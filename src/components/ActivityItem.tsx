@@ -16,7 +16,7 @@ const ActivityInformation = (activity: Activity) => {
 		<div className={styles.ActivityInformationsContainer}>
 			<p className={styles.activityText}>{`${i18n.t(
 				`Activities.type`
-			)} : ${capitalize(activity.type)}`}</p>
+			)} : ${capitalize(i18n.t(`Discover.${activity.type}.title`))}`}</p>
 			<p className={styles.activityText}>{`${i18n.t(
 				`Activities.city`
 			)} : ${capitalize(activity.city)}`}</p>
