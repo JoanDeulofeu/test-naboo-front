@@ -142,11 +142,15 @@ const Activities = () => {
 					<ActivityItem key={activity.id} activity={activity} />
 				))}
 				{activitiesFiltered.length === 0 && (
-					<p className={styles.noActivityText}>{`${i18n.t(
-						"Activities.noActivityFound.part1"
-					)} ${i18n.t(`Discover.${filter}.title`)} ${i18n.t(
-						"Activities.noActivityFound.part2"
-					)}`}</p>
+					<p className={styles.noActivityText}>
+						{filterType === "city"
+							? `${i18n.t(`Activities.noActivityFoundCity`)} ${capitalize(
+									filter
+							  )}`
+							: `${i18n.t("Activities.noActivityFound.part1")} ${i18n.t(
+									`Discover.${filter}.title`
+							  )} ${i18n.t("Activities.noActivityFound.part2")}`}
+					</p>
 				)}
 			</div>
 		</div>

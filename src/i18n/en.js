@@ -28,7 +28,8 @@ const en = {
 		description: "Description",
 		price: "Price",
 		notSupplied: "Not supplied",
-		noActivityFound: { part1: "Aucune activité de", part2: "trouvée." },
+		noActivityFound: { part1: "No activity", part2: "found." },
+		noActivityFoundCity: "No activity found in",
 		seeMore: "See more",
 	},
 	City: {
