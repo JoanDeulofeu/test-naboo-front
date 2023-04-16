@@ -46,9 +46,14 @@ const Header = () => {
 				>
 					{i18n.t(`Explorer`)}
 				</Link>
-				<Link className={styles.rightLink} href="http://localhost:3000/account">
-					{i18n.t(`Account.title`)}
-				</Link>
+				{isConnected && (
+					<Link
+						className={styles.rightLink}
+						href="http://localhost:3000/account"
+					>
+						{i18n.t(`Account.title`)}
+					</Link>
+				)}
 				{headerConnectionModalIsOpen && (
 					<div className={styles.connectionModal}>
 						<p
